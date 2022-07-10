@@ -1,11 +1,25 @@
 <h1>Books</h1>
 
-<%= form_with model: @Book do |f| %>
+<% @books.each do |book| %>
+<h4>Title</h4>
+<span><%= book.title %>
+</span>
+<h4>Body</h4>
+<span><%= book.body %>
+</span>
+
+<span><%= link_to 'show', book_path(book.id) %>
+</span>
+<% end %>
+
+
+<h1>New book</h1>
+<%= form_with model: @book do |f| %>
 <p>Title</p>
 <%= f.text_field :title %>
 
 <p>Body</p>
 <%= f.text_area :body %>
 
-<%= f.submit '投稿' %>
+<%= f.submit 'Create Book' %>
 <% end %>
