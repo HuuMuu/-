@@ -1,16 +1,21 @@
-<h1>Editing Book</h1>
+<h1 class="title">Editing Book</h1>
 
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
-
-  <p>Title</p>
+<div class="field">
+  <div>Title</div>
   <%= f.text_field :title %>
-
-  <p>Body</p>
+</div>
+<div class="filed">
+  <div>Body</div>
   <%= f.text_area :body %>
-
+</div>
+<div class="action">
   <%= f.submit 'Update Book' %>
-
+</div>
+<a>
   <%= link_to "Back", action: 'index' %>
+  |
   <%= link_to 'Show', book_path(@book.id) %>
+</a>
 
 <% end %>
