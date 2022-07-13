@@ -1,4 +1,4 @@
-<p><%= flash[:notice] %></p>
+<p class="flash-text"><%= flash[:notice] %></p>
 <p>
   <strong>Title:</strong>
   <%= @book.title %>
@@ -8,7 +8,6 @@
   <strong>Body:</strong>
   <%= @book.body %>
 </p>
-
 <a>
   <%= link_to "Edit", edit_book_path(@book.id) %>
   |
