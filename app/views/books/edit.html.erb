@@ -1,7 +1,7 @@
 <h1 class="title">Editing Book</h1>
 
 <% if @book.errors.any? %>
-<h2><%= @book.errors.count %>errors prohibited this book from being saved:</h2>
+<h2 class="error"><%= @book.errors.count %>errors prohibited this book from being saved:</h2>
     <ul>
       <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -10,7 +10,7 @@
 <% end %>
 
 
-<%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+<%= form_with model: @book, url: book_path(@book.id), method: :put do |f| %>
 <div class="field">
   <div>Title</div>
   <%= f.text_field :title %>
@@ -22,10 +22,8 @@
 <div class="action">
   <%= f.submit 'Update Book' %>
 </div>
-<a>
   <%= link_to 'Show', book_path(@book.id) %>
   |
   <%= link_to "Back", action: 'index' %>
-</a>
 
 <% end %>
